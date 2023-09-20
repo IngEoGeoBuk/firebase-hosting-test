@@ -3,6 +3,9 @@
 
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
+env:
+  TEST_VALUE: ${{ secrets.TEST_VALUE }}
+  TEST_HARDCODING: 'hard2'
 jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
@@ -16,6 +19,3 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MYBEST11_D1070 }}'
           channelId: live
           projectId: mybest11-d1070
-        env:
-          TEST_VALUE: ${{ secrets.TEST_VALUE }}
-          TEST_HARDCODING: 'hard2'

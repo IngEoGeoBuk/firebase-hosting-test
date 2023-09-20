@@ -6,6 +6,9 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - master
+env:
+  TEST_VALUE: ${{ secrets.TEST_VALUE }}
+  TEST_HARDCODING: 'hard1'
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -18,6 +21,3 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MYBEST11_D1070 }}'
           channelId: live
           projectId: mybest11-d1070
-        env:
-          TEST_VALUE: ${{ secrets.TEST_VALUE }}
-          TEST_HARDCODING: 'hard1'
