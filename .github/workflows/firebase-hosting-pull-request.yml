@@ -16,7 +16,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MYBEST11_D1070 }}'
           channelId: live
           projectId: mybest11-d1070
-          secrets: |-
-            test_value:${{ secrets.TEST_VALUE }}
         env:
-          TEST_VALUE: '${{ steps.secrets.outputs.test_value }}'
+          TEST_VALUE: ${{ secrets.TEST_VALUE }}
