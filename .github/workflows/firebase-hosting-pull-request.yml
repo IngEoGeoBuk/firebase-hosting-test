@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm ci
+      - run: npm ci && npm run build && npm run export
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
@@ -19,4 +19,3 @@ jobs:
         env:
           TEST_VALUE: ${{ secrets.TEST_VALUE }}
           TEST_HARDCODING: 'hard2'
-      - run: npm run build && npm run export
